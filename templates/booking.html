@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize%}
+{% block title %}Booking-Shuran{% endblock %}
+{% block content%}
+
+
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header">
+        <h1 class="display-3 text-uppercase text-white mb-3">Car Booking</h1>
+        <div class="d-inline-flex text-white">
+            <h6 class="text-uppercase m-0"><a class="text-white" href="/">Home</a></h6>
+            <h6 class="text-body m-0 px-3">/</h6>
+            <h6 class="text-uppercase text-body m-0">{{car1.name}} {{car1.model}}</h6>
+
+        </div>
+    </div>
+    <!-- Page Header Start -->
+
+
+    <!-- Detail Start -->
+    <div class="container-fluid pt-5">
+        <div class="container pt-5 pb-3">
+            <h1 class="display-4 text-uppercase mb-5">{{car1.name}}</h1>
+            <div class="row align-items-center pb-2">
+                <div class="col-lg-6 mb-4">
+                    <img class="img-fluid" src="{{car1.image.url}}" alt="">
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <h4 class="mb-2">{{car1.price|intcomma}}/Day</h4>
+                    <div class="d-flex mb-3">
+                        <h6 class="mr-2">Rating:</h6>
+                        <div class="d-flex align-items-center justify-content-center mb-1">
+                            <small class="fa fa-star text-primary mr-1"></small>
+                            <small class="fa fa-star text-primary mr-1"></small>
+                            <small class="fa fa-star text-primary mr-1"></small>
+                            <small class="fa fa-star text-primary mr-1"></small>
+                            <small class="fa fa-star-half-alt text-primary mr-1"></small>
+                            <small>(250)</small>
+                        </div>
+                    </div>
+                    <p>{{car1.description}}</p>
+                    <div class="d-flex pt-1">
+                        <h6>Share on:</h6>
+                        <div class="d-inline-flex">
+                            <a class="px-2" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="px-2" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="px-2" href=""><i class="fab fa-linkedin-in"></i></a>
+                            <a class="px-2" href=""><i class="fab fa-pinterest"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-n3 mt-lg-0 pb-4">
+                <div class="col-md-3 col-6 mb-2">
+                    <i class="fa fa-car text-primary mr-2"></i>
+                    <span>Model: {{car1.model}}</span>
+                </div>
+                <div class="col-md-3 col-6 mb-2">
+                    <i class="fa fa-cogs text-primary mr-2"></i>
+                    <span>{{car1.enginetype}}</span>
+                </div>
+                <div class="col-md-3 col-6 mb-2">
+                    <i class="fa fa-road text-primary mr-2"></i>
+                    <span>{{car1.fuelConsumption}}</span>
+                </div>  
+                <div class="col-md-3 col-6 mb-2">
+                    <i class="fa fa-eye text-primary mr-2"></i>
+                    <span>GPS Navigation</span>
+                </div>  
+            </div>
+        </div>
+    </div>
+    <!-- Detail End -->
+
+
+    <!-- Car Booking Start -->
+    <div class="container-fluid pb-5">
+        <div class="container">
+            <form method="post" action="{% url 'booking' car1.id %}">
+                {% csrf_token %}
+            <div class="row">
+                <div class="col-lg-8">
+                    
+                    <h2 class="mb-4">Booking Details</h2>
+                    <div class="mb-5">
+                        <div class="row">
+                            <div class="col-6 form-group">
+                                <input type="text" class="form-control p-4" placeholder="First name & Last name" name="names">
+                            </div>
+                            <div class="col-6 form-group">
+                                <input type="text" class="form-control p-4" placeholder="Phone Number" name="phonenumber">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 form-group">
+                                <div class="date" id="date1" data-target-input="nearest">
+                                    <input type="text" class="form-control p-4 datetimepicker-input" placeholder="Pickup Date"
+                                        data-target="#date1" data-toggle="datetimepicker" name="pickup_date"/>
+                                </div>                            </div>
+                            <div class="col-6 form-group">
+                                <div class="date" id="date2" data-target-input="nearest">
+                                    <input type="text" class="form-control p-4 datetimepicker-input" placeholder="Return Date"
+                                        data-target="#date2" data-toggle="datetimepicker" name="return_date"/>
+                                </div>                            </div>
+                        </div>
+                    </div>
+  
+                </div>
+                <div class="col-lg-4">
+                    <div class="bg-secondary p-5 mb-5">
+                        <h2 class="text-primary mb-4">Payment</h2>
+                        <div class="form-group">
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" name="payment" id="paypal">
+                                <label class="custom-control-label" for="paypal">Cash</label>
+                            </div>
+                        </div>
+                        <!-- <div class="form-group">
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" name="payment" id="directcheck">
+                                <label class="custom-control-label" for="directcheck">Direct Check</label>
+                            </div>
+                        </div> -->
+                        <!-- <div class="form-group mb-4">
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" name="payment" id="banktransfer">
+                                <label class="custom-control-label" for="banktransfer">Bank Transfer</label>
+                            </div>
+                        </div> -->
+                        <button class="btn btn-block btn-primary py-3">Book Now</button>
+                    </div>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+    <!-- Car Booking End -->
+
+
+    {% endblock %}

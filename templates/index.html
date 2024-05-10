@@ -1,0 +1,186 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Shuran-Home{% endblock %}
+{% load humanize%}
+{% block content%}
+    <!-- Carousel Start -->
+    <div class="container-fluid p-0" >
+        <div id="header-carousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                {% for slide in slides %}
+                <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                    <img class="w-100" src="{{ slide.image.url }}" alt="Image">
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                        <div class="p-3" style="max-width: 900px;">
+                            <h4 class="text-white text-uppercase mb-md-3">{{ slide.caption }}</h4>
+                            <h1 class="display-1 text-white mb-md-4">{{ slide.title }}</h1>
+                            <a href="/cars" class="btn btn-primary py-md-3 px-md-5 mt-2">Reserve Now</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            
+            </div>
+            <a class="carousel-control-prev" href="#header-carousel" data-slide="prev">
+                <div class="btn btn-dark" style="width: 45px; height: 45px;">
+                    <span class="carousel-control-prev-icon mb-n2"></span>
+                </div>
+            </a>
+            <a class="carousel-control-next" href="#header-carousel" data-slide="next">
+                <div class="btn btn-dark" style="width: 45px; height: 45px;">
+                    <span class="carousel-control-next-icon mb-n2"></span>
+                </div>
+            </a>
+        </div>
+    </div>
+    <!-- Carousel End -->
+
+
+    <!-- About Start -->
+    <div class="container-fluid py-5">
+        <div class="container pt-5 pb-3">
+            <h1 class="display-1 text-primary text-center">01</h1>
+            <h1 class="display-4 text-uppercase text-center mb-5">Welcome To <span class="text-primary">SHURAN</span></h1>
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center">
+                    <img class="w-75 mb-4" src="{% static 'img/about.png' %}" alt="">
+                    <p>Shuran is your trusted partner for all your transportation needs. With a focus on convenience and reliability, we offer a range of services including car rentals, fuel delivery, and cargo transportation. Our mission is to provide seamless travel experiences, ensuring that our customers reach their destinations safely and comfortably. Whether you're planning a road trip, need to refuel on the go, or require transportation for your cargo, Shuran has you covered. Experience worry-free travel with Shuran today!</p>                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-lg-4 mb-2">
+                    <div class="d-flex align-items-center bg-light p-4 mb-4" style="height: 150px;">
+                        <div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-primary ml-n4 mr-4" style="width: 100px; height: 100px;">
+                            <i class="fa fa-2x fa-headset text-secondary"></i>
+                        </div>
+                        <h4 class="text-uppercase m-0">24/7 Car Rental Support</h4>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-2">
+                    <div class="d-flex align-items-center bg-secondary p-4 mb-4" style="height: 150px;">
+                        <div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-primary ml-n4 mr-4" style="width: 100px; height: 100px;">
+                            <i class="fa fa-2x fa-car text-secondary"></i>
+                        </div>
+                        <h4 class="text-light text-uppercase m-0">Car Reservation Anytime</h4>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-2">
+                    <div class="d-flex align-items-center bg-light p-4 mb-4" style="height: 150px;">
+                        <div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-primary ml-n4 mr-4" style="width: 100px; height: 100px;">
+                            <i class="fas fa-gas-pump text-secondary" style="font-size: 30px;"></i>
+                        </div>
+                        <h4 class="text-uppercase m-0">We Deliver Fuel to your Location</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+    
+    <!-- Rent A Car Start -->
+    <div class="container-fluid py-5">
+        <div class="container pt-5 pb-3">
+            <h1 class="display-1 text-primary text-center">02</h1>
+            <h1 class="display-4 text-uppercase text-center mb-5">Find Your Car</h1>
+            <div class="row">
+                {% for car in cars%}
+                <div class="col-lg-4 col-md-6 mb-2">
+                    <div class="rent-item mb-4">
+                       <a href="{% url 'detail' car.id%}"><img class="img-fluid mb-4" src="{{car.image.url}}" alt=""></a> 
+                        <h4 class="text-uppercase mb-4">{{car.name}}</h4>
+                        <div class="d-flex justify-content-center mb-4">
+                            <div class="px-2">
+                                <i class="fa fa-car text-primary mr-1"></i>
+                                <span>{{car.model}}</span>
+                            </div>
+                            <div class="px-2 border-left border-right">
+                                <i class="fa fa-cogs text-primary mr-1"></i>
+                                <span>{{car.enginetype}}</span>
+                            </div>
+                            <div class="px-2">
+                                <i class="fa fa-road text-primary mr-1"></i>
+                                <span>{{car.fuelConsumption}}</span>
+                            </div>
+                        </div>
+                        <a class="" href="">UGX {{car.price|intcomma}}/Day</a>
+                        <div class=" justify-content-center ">
+                            <a class="btn btn-primary px-3 d-inline-block" href="{% url 'booking' car.id %}">Book Now</a>
+                        </div>
+                        
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- Rent A Car End -->
+
+    <!-- Services Start -->
+    <div class="container-fluid py-5">
+        <div class="container pt-5 pb-3">
+            <h1 class="display-1 text-primary text-center">03</h1>
+            <h1 class="display-4 text-uppercase text-center mb-5">Our Services</h1>
+            <div class="row">
+                {% for service in services %}
+                <div class="col-lg-4 col-md-6 mb-2">
+                    <div class="service-item d-flex flex-column justify-content-center px-4 mb-4">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <div class="d-flex align-items-center justify-content-center bg-primary ml-n4" style="width: 80px; height: 80px;">
+                                <i class="{{service.icon}} text-secondary"></i>
+                            </div>
+                            <h1 class="display-2 text-white mt-n2 m-0">{{service.number}}</h1>
+                        </div>
+                        <h4 class="text-uppercase mb-3">{{service.title}}</h4>
+                        <p class="m-0">{{service.details|truncatechars:290}}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- Services End -->
+
+
+    <!-- Banner Start -->
+    <div class="container-fluid py-5">
+        <div class="container py-5">
+            <div class="bg-banner py-5 px-4 text-center">
+                <div class="py-5">
+                    <h1 class="display-1 text-uppercase text-primary mb-4">50% OFF</h1>
+                    <h1 class="text-uppercase text-light mb-4">Special Offer For New Members</h1>
+                    <p class="mb-4">Only for Sunday from 1st Jan to 30th Jan 2045</p>
+                    <a class="btn btn-primary mt-2 py-3 px-5" href="">Register Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Banner End -->
+
+
+
+    <!-- Team Start -->
+    <div class="container-fluid py-5">
+        <div class="container py-5">
+            <h1 class="display-1 text-primary text-center">04</h1>
+            <h1 class="display-4 text-uppercase text-center mb-5">Meet Our Team</h1>
+            <div class="owl-carousel team-carousel position-relative" style="padding: 0 30px;">
+                {% for member in staff %}
+                <div class="team-item">
+                    <img class="img-fluid w-100" src="{{member.image.url}}" alt="">
+                    <div class="position-relative py-4">
+                        <h4 class="text-uppercase">{{member.name}}</h4>
+                        <p class="m-0">{{member.title}}</p>
+                        <div class="team-social position-absolute w-100 h-100 d-flex align-items-center justify-content-center">
+                            <a class="btn btn-lg btn-primary btn-lg-square mx-1" href="javascript:void(0)"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-lg btn-primary btn-lg-square mx-1" href="javascript:void(0)"><i class="fab fa-facebook-f"></i></a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+               
+            </div>
+        </div>
+    </div>
+
+{% include 'include.html' %}    <!-- Team End -->
+
+{% endblock %}
