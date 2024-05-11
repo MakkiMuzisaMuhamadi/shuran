@@ -36,10 +36,71 @@
     <!-- Carousel End -->
 
 
-    <!-- About Start -->
+
+    
+    <!-- Rent A Car Start -->
     <div class="container-fluid py-5">
         <div class="container pt-5 pb-3">
             <h1 class="display-1 text-primary text-center">01</h1>
+            <h1 class="display-4 text-uppercase text-center mb-5">Find Your Car</h1>
+            <div class="row">
+                {% for car in cars%}
+                <div class="col-lg-4 col-md-6 mb-2">
+                    <div class="rent-item mb-4">
+                       <a href="{% url 'detail' car.id%}"><img class="img-fluid mb-4" src="{{car.image.url}}" alt=""></a> 
+                        <h4 class="text-uppercase mb-4">{{car.name}}</h4>
+                        <div class="d-flex justify-content-center mb-4">
+                            <div class="px-2">
+                                <i class="fa fa-car text-primary mr-1"></i>
+                                <span>{{car.model}}</span>
+                            </div>
+                            <div class="px-2 border-left border-right">
+                                <i class="fa fa-cogs text-primary mr-1"></i>
+                                <span>{{car.enginetype}}</span>
+                            </div>
+                            <div class="px-2">
+                                <i class="fa fa-road text-primary mr-1"></i>
+                                <span>{{car.fuelConsumption}}</span>
+                            </div>
+                        </div>
+                        <a class="" href="">UGX {{car.price|intcomma}}/Day</a>
+                        <div class=" justify-content-center ">
+                            <a class="btn btn-primary px-3 d-inline-block" href="{% url 'booking' car.id %}">Book Now</a>
+                        </div>
+                        
+                    </div>
+                </div>
+                {% endfor %}
+                
+            </div>
+            <div class="d-flex justify-content-center align-items-center mt-2">
+                <a class="btn btn-primary py-md-3 px-md-5" href="/cars">More Cars</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Rent A Car End -->
+
+ <!-- Cargo Track Start -->
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="bg-banner py-5 px-4 text-center">
+            <div class="py-5">
+                <h1 class="display-1 text-uppercase text-primary mb-4">Cargo Delivery</h1>
+                <h1 class="text-uppercase text-light mb-4">Fast and Reliable Services</h1>
+                <p class="mb-4">Limited Time Offer: Enjoy exclusive discounts on your first delivery!</p>
+                <a class="btn btn-primary mt-2 py-3 px-5" href="/shipping">Start Shipping Process</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Cargo Track End -->
+
+    
+    <!-- About Start -->
+    <div class="container-fluid py-5">
+        <div class="container pt-5 pb-3">
+            <h1 class="display-1 text-primary text-center">02</h1>
             <h1 class="display-4 text-uppercase text-center mb-5">Welcome To <span class="text-primary">SHURAN</span></h1>
             <div class="row justify-content-center">
                 <div class="col-lg-10 text-center">
@@ -75,45 +136,6 @@
         </div>
     </div>
     <!-- About End -->
-    
-    <!-- Rent A Car Start -->
-    <div class="container-fluid py-5">
-        <div class="container pt-5 pb-3">
-            <h1 class="display-1 text-primary text-center">02</h1>
-            <h1 class="display-4 text-uppercase text-center mb-5">Find Your Car</h1>
-            <div class="row">
-                {% for car in cars%}
-                <div class="col-lg-4 col-md-6 mb-2">
-                    <div class="rent-item mb-4">
-                       <a href="{% url 'detail' car.id%}"><img class="img-fluid mb-4" src="{{car.image.url}}" alt=""></a> 
-                        <h4 class="text-uppercase mb-4">{{car.name}}</h4>
-                        <div class="d-flex justify-content-center mb-4">
-                            <div class="px-2">
-                                <i class="fa fa-car text-primary mr-1"></i>
-                                <span>{{car.model}}</span>
-                            </div>
-                            <div class="px-2 border-left border-right">
-                                <i class="fa fa-cogs text-primary mr-1"></i>
-                                <span>{{car.enginetype}}</span>
-                            </div>
-                            <div class="px-2">
-                                <i class="fa fa-road text-primary mr-1"></i>
-                                <span>{{car.fuelConsumption}}</span>
-                            </div>
-                        </div>
-                        <a class="" href="">UGX {{car.price|intcomma}}/Day</a>
-                        <div class=" justify-content-center ">
-                            <a class="btn btn-primary px-3 d-inline-block" href="{% url 'booking' car.id %}">Book Now</a>
-                        </div>
-                        
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
-        </div>
-    </div>
-    <!-- Rent A Car End -->
-
     <!-- Services Start -->
     <div class="container-fluid py-5">
         <div class="container pt-5 pb-3">
@@ -138,24 +160,6 @@
         </div>
     </div>
     <!-- Services End -->
-
-
-    <!-- Banner Start -->
-    <div class="container-fluid py-5">
-        <div class="container py-5">
-            <div class="bg-banner py-5 px-4 text-center">
-                <div class="py-5">
-                    <h1 class="display-1 text-uppercase text-primary mb-4">50% OFF</h1>
-                    <h1 class="text-uppercase text-light mb-4">Special Offer For New Members</h1>
-                    <p class="mb-4">Only for Sunday from 1st Jan to 30th Jan 2045</p>
-                    <a class="btn btn-primary mt-2 py-3 px-5" href="">Register Now</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Banner End -->
-
-
 
     <!-- Team Start -->
     <div class="container-fluid py-5">

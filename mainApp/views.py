@@ -1,21 +1,25 @@
 from django.shortcuts import get_object_or_404, redirect, render
 from .models import *
+import random
 # Create your views here.
 
+
 def index(request):
-    cars = Cars.objects.all()
+    cars = list(Cars.objects.all())  # Convert queryset to a list
+    random.shuffle(cars)  # Shuffle the list randomly
+    cars = cars[:10]  # Take the first 20 cars
     slides = Slides.objects.all()
     services = Services.objects.all()
     staff = Staff.objects.all()
     testimonials = Testimonials.objects.all()
     context = {
-        'cars':cars,
-        'slides':slides,
-        'services':services,
-        'staff':staff,
-        'testimonials':testimonials,
+        'cars': cars,
+        'slides': slides,
+        'services': services,
+        'staff': staff,
+        'testimonials': testimonials,
     }
-    return render(request, 'index.html',context)
+    return render(request, 'index.html', context)
 
 def aboutus(request):
     testimonials = Testimonials.objects.all()
@@ -97,3 +101,44 @@ def track(request):
 
     }
     return render(request, 'track.html',context)
+
+def trackStatus(request):
+    context = {
+
+    }
+    return render(request, 'track-status.html',context)
+
+def shipping(request):
+    if request.method == 'POST':
+        customer_name = request.POST.get('names')
+        phone_number = request.POST.get('phonenumber')
+        email = request.POST.get('email')  
+        location = request.POST.get('location')
+        destination = request.POST.get('destination')
+        cargo = request.POST.get('cargo')
+        
+        shipping = Cargo.objects.create(
+            customer_name=customer_name,
+            phone_number=phone_number,
+            email=email,
+            location=location,
+            destination=destination,
+            cargo=cargo,
+        )
+        shipping.save()
+
+        # Redirect to success page and pass the car name as a parameter
+        return redirect('success_shipping',customer_name=customer_name,phone_number=phone_number,email=email,)
+
+    context = {
+
+    }
+    return render(request, 'shipping.html',context)
+
+def success_shipping(request,customer_name, phone_number, email,):
+    context = {
+    'customer_name': customer_name,
+    'phone_number': phone_number,
+    'email': email,
+    }
+    return render(request, 'success_shipping.html', context)

@@ -64,3 +64,13 @@ class Booking(models.Model):
 
     def __str__(self):
         return f"Booking #{self.id} - {self.customer_name}"
+    
+class Cargo(models.Model):
+    customer_name = models.CharField(max_length=255)
+    phone_number = models.CharField(max_length=100)
+    email = models.CharField(max_length=100)
+    location = models.CharField(max_length=100)
+    destination = models.CharField(max_length=100)
+    cargo = models.CharField(max_length=500)
+    created_at = models.DateTimeField(auto_now_add=True)
+

@@ -10,5 +10,8 @@ urlpatterns = [
     path('service', views.service, name='service'),
     path('fuel', views.fuel, name='fuel'),
     path('track', views.track, name='track'),
+    path('status', views.trackStatus, name='trackStatus'),
+    path('shipping', views.shipping, name='shipping'),
+    path('success_shipping/<str:customer_name>/<str:phone_number>/<str:email>/', views.success_shipping, name='success_shipping'),
     path('success/<str:car_name>/<str:car_model>/', views.success_page, name='success_page'),
 ]
