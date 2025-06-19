@@ -35,10 +35,156 @@
     </div>
     <!-- Carousel End -->
 
+<!-- Services Section -->
+<div class="container-fluid py-5">
+    <div class="container py-3">
+        <div class="row g-3">
+            <!-- Car Service -->
+            <div class="col-4 col-md-4 col-lg-2">
+                <div class="service-card card border-0 bg-white shadow-sm mb-3">
+                    <div class="card-img-container position-relative">
+                        <img src="{% static 'img/Car-Service.svg' %}" alt="Car Service" class="card-img-top p-3">
+                        <span class="service-badge bg-primary">Popular</span>
+                    </div>
+                    <div class="card-body text-center p-2">
+                        <h5 class="card-title mb-0">Car Service</h5>
+                    </div>
+                </div>
+            </div>
 
+            <!-- Mobile Service -->
+            <div class="col-4 col-md-4 col-lg-2">
+                <div class="service-card card border-0 bg-white shadow-sm mb-3">
+                    <div class="card-img-container position-relative">
+                        <img src="{% static 'img/mobile-service-20230315041034.png' %}" alt="Mobile Service" class="card-img-top p-3">
+                        <span class="service-badge bg-success">New</span>
+                    </div>
+                    <div class="card-body text-center p-2">
+                        <h5 class="card-title mb-0">Mobile Service</h5>
+                    </div>
+                </div>
+            </div>
 
-    
-    <!-- Rent A Car Start -->
+            <!-- Car Repair -->
+            <div class="col-4 col-md-4 col-lg-2">
+                <div class="service-card card border-0 bg-white shadow-sm mb-3">
+                    <div class="card-img-container position-relative">
+                        <img src="{% static 'img/Car-Repair-20231021071339.png' %}" alt="Car Repair" class="card-img-top p-3">
+                    </div>
+                    <div class="card-body text-center p-2">
+                        <h5 class="card-title mb-0">Car Repair</h5>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Car Renewal -->
+            <div class="col-4 col-md-4 col-lg-2">
+                <div class="service-card card border-0 bg-white shadow-sm mb-3">
+                    <div class="card-img-container position-relative">
+                        <img src="{% static 'img/car-renewal-20230315040907.png' %}" alt="Car Renewal" class="card-img-top p-3">
+                    </div>
+                    <div class="card-body text-center p-2">
+                        <h5 class="card-title mb-0">Car Renewal</h5>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service Contract -->
+            <div class="col-4 col-md-4 col-lg-2">
+                <div class="service-card card border-0 bg-white shadow-sm mb-3">
+                    <div class="card-img-container position-relative">
+                        <img src="{% static 'img/service-contract-20231021071950.png' %}" alt="Service Contract" class="card-img-top p-3">
+                        <span class="service-badge bg-info">Special</span>
+                    </div>
+                    <div class="card-body text-center p-2">
+                        <h5 class="card-title mb-0">Service Contract</h5>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rent a Car -->
+            <div class="col-4 col-md-4 col-lg-2">
+                <div class="service-card card border-0 bg-white shadow-sm mb-3">
+                    <div class="card-img-container position-relative">
+                        <img src="{% static 'img/download.png' %}" alt="Rent a Car" class="card-img-top p-3">
+                    </div>
+                    <div class="card-body text-center p-2">
+                        <h5 class="card-title mb-0">Rent a Car</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Service Cards */
+    .service-card {
+        transition: all 0.3s ease;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    .service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-img-container {
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .card-img-top {
+        max-height: 80px;
+        width: auto;
+        object-fit: contain;
+        transition: transform 0.3s ease;
+    }
+
+    .service-card:hover .card-img-top {
+        transform: scale(1.1);
+    }
+
+    .service-badge {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        padding: 3px 8px;
+        border-radius: 12px;
+        color: white;
+        font-size: 10px;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+
+    .card-body {
+        padding: 0.5rem;
+    }
+
+    .card-title {
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    /* Responsive adjustments */
+    @media (min-width: 768px) {
+        .card-img-container {
+            height: 120px;
+        }
+        
+        .card-img-top {
+            max-height: 100px;
+        }
+        
+        .card-title {
+            font-size: 16px;
+        }
+    }
+</style>    
+    <!-- Rent A Car Start
     <div class="container-fluid py-5">
         <div class="container pt-5 pb-3">
             <h1 class="display-1 text-primary text-center">01</h1>
@@ -77,7 +223,7 @@
                 <a class="btn btn-primary py-md-3 px-md-5" href="/cars">More Cars</a>
             </div>
         </div>
-    </div>
+    </div> -->
     
     <!-- Rent A Car End -->
 
