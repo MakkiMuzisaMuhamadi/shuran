@@ -3,37 +3,41 @@
 {% block title %}Shuran-Home{% endblock %}
 {% load humanize%}
 {% block content%}
-    <!-- Carousel Start -->
-    <div class="container-fluid p-0" >
-        <div id="header-carousel" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-                {% for slide in slides %}
-                <div class="carousel-item {% if forloop.first %}active{% endif %}">
-                    <img class="w-100" src="{{ slide.image.url }}" alt="Image">
-                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                        <div class="p-3" style="max-width: 900px;">
-                            <h4 class="text-white text-uppercase mb-md-3">{{ slide.caption }}</h4>
-                            <h1 class="display-1 text-white mb-md-4">{{ slide.title }}</h1>
-                            <a href="/cars" class="btn btn-primary py-md-3 px-md-5 mt-2">Reserve Now</a>
-                        </div>
-                    </div>
-                </div>
-            {% endfor %}
-            
-            </div>
-            <a class="carousel-control-prev" href="#header-carousel" data-slide="prev">
-                <div class="btn btn-dark" style="width: 45px; height: 45px;">
-                    <span class="carousel-control-prev-icon mb-n2"></span>
-                </div>
-            </a>
-            <a class="carousel-control-next" href="#header-carousel" data-slide="next">
-                <div class="btn btn-dark" style="width: 45px; height: 45px;">
-                    <span class="carousel-control-next-icon mb-n2"></span>
-                </div>
-            </a>
+
+<section class="hero-banner" style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1600861195091-690c92f1d2cc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80'); background-size: cover; background-position: center;">
+  <div class="container">
+    <div class="hero-content text-white text-center py-4 py-md-5">
+      <h1 class="hero-title mb-2 mb-md-3">Expert Car Repairs & Genuine Spare Parts</h1>
+      <p class="hero-subtitle mb-3 mb-md-4">Fast, Affordable, and Backed by 12-Month Warranty</p>
+      
+      <div class="cta-buttons">
+        <a href="/book-repair" class="btn btn-repair btn-lg mb-2 mb-md-0">
+          <i class="fas fa-tools me-2"></i> Book a Repair
+        </a>
+        <a href="/spare-parts" class="btn btn-parts btn-lg">
+          <i class="fas fa-cog me-2"></i> Browse Parts
+        </a>
+      </div>
+      
+      <div class="trust-badges mt-4 mt-md-5">
+        <div class="trust-grid">
+          <div class="trust-item">
+            <i class="fas fa-user-shield trust-icon"></i>
+            <p class="trust-text">Certified Techs</p>
+          </div>
+          <div class="trust-item">
+            <i class="fas fa-clock trust-icon"></i>
+            <p class="trust-text">30-Min Response</p>
+          </div>
+          <div class="trust-item">
+            <i class="fas fa-phone-alt trust-icon"></i>
+            <p class="trust-text">24/7 Emergency</p>
+          </div>
         </div>
+      </div>
     </div>
-    <!-- Carousel End -->
+  </div>
+</section>
 
 <!-- Services Section -->
 <div class="container-fluid py-5">
@@ -117,220 +121,691 @@
     </div>
 </div>
 
+<section class="service-process-tabs">
+  <div class="container">
+    <h2 class="section-title">Our Hassle-Free Service Journey</h2>
+    
+    <!-- Step Navigation -->
+    <div class="step-indicator">
+      <div class="step active" data-step="book">
+        <div class="step-bubble">
+          <i class="fas fa-calendar-alt"></i>
+        </div>
+        <span class="step-label">You Book</span>
+      </div>
+      
+      <div class="step" data-step="collect">
+        <div class="step-bubble">
+          <i class="fas fa-car-side"></i>
+        </div>
+        <span class="step-label">We Collect</span>
+      </div>
+      
+      <div class="step" data-step="service">
+        <div class="step-bubble">
+          <i class="fas fa-tools"></i>
+        </div>
+        <span class="step-label">We Service</span>
+      </div>
+      
+      <div class="step" data-step="deliver">
+        <div class="step-bubble">
+          <i class="fas fa-check-circle"></i>
+        </div>
+        <span class="step-label">We Deliver</span>
+      </div>
+    </div>
+    
+    <!-- Content Panels -->
+    <div class="process-content">
+      <!-- Book Panel -->
+      <div class="content-panel active" id="book">
+        <div class="booking-options">
+          <div class="option-card">
+            <div class="option-icon bg-blue">
+              <i class="fas fa-phone"></i>
+            </div>
+            <h3>By Phone</h3>
+            <p>Our call centre operates from 8AM - 9PM, Monday to Saturday</p>
+            <a href="tel:8002665464" class="action-btn">
+              Call 800 266 5464
+              <i class="fas fa-phone-alt"></i>
+            </a>
+          </div>
+          
+          <div class="option-card">
+            <div class="option-icon bg-green">
+              <i class="fas fa-globe"></i>
+            </div>
+            <h3>Online</h3>
+            <p>Make a booking anytime through our portal</p>
+            <a href="/book-online" class="action-btn">
+              Book Online
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+          
+          <div class="option-card">
+            <div class="option-icon bg-purple">
+              <i class="fas fa-mobile-alt"></i>
+            </div>
+            <h3>Mobile App</h3>
+            <p>Get our app for fastest booking experience</p>
+            <div class="app-download-form">
+              <div class="input-group">
+                <select class="country-code">
+                  <option>+971</option>
+                  <option>+966</option>
+                  <option>+968</option>
+                </select>
+                <input type="tel" placeholder="Phone number">
+                <button class="send-btn">
+                  Get App Link
+                  <i class="fas fa-paper-plane"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Collect Panel -->
+      <div class="content-panel" id="collect">
+        <div class="step-details">
+          <div class="detail-card">
+            <div class="detail-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div class="detail-content">
+              <h3>Convenient Collection</h3>
+              <p>Our driver arrives at your chosen time and location to collect your vehicle. We conduct a thorough inspection and generate a collection report sent immediately via SMS and email.</p>
+            </div>
+          </div>
+          
+          <div class="detail-card">
+            <div class="detail-icon">
+              <i class="fas fa-headset"></i>
+            </div>
+            <div class="detail-content">
+              <h3>Support Available</h3>
+              <p>For any concerns during collection, contact our customer support at 8002665464.</p>
+            </div>
+          </div>
+          
+          <div class="detail-card">
+            <div class="detail-icon">
+              <i class="fas fa-shield-virus"></i>
+            </div>
+            <div class="detail-content">
+              <h3>Safety First</h3>
+              <p>All staff follow strict COVID-19 protocols including masks and gloves. Please remove valuables as your car passes through multiple departments.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Service Panel -->
+      <div class="content-panel" id="service">
+        <div class="timeline">
+          <div class="timeline-step">
+            <div class="step-marker">1</div>
+            <div class="step-content">
+              <h4>Workshop Arrival</h4>
+              <p>Your car is assigned a service advisor who creates a detailed report with images.</p>
+            </div>
+          </div>
+          
+          <div class="timeline-step">
+            <div class="step-marker">2</div>
+            <div class="step-content">
+              <h4>Health Check</h4>
+              <p>Our technician performs a full inspection and sends you a health check report via SMS and email.</p>
+            </div>
+          </div>
+          
+          <div class="timeline-step">
+            <div class="step-marker">3</div>
+            <div class="step-content">
+              <h4>Parts Approval</h4>
+              <p>We source the highest quality parts and send you a quotation for approval before any work begins.</p>
+            </div>
+          </div>
+          
+          <div class="timeline-step">
+            <div class="step-marker">4</div>
+            <div class="step-content">
+              <h4>Service Execution</h4>
+              <p>After your approval, we immediately begin the repair/service using approved parts.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Deliver Panel -->
+      <div class="content-panel" id="deliver">
+        <div class="delivery-steps">
+          <div class="delivery-step">
+            <div class="step-header">
+              <div class="step-number">1</div>
+              <h3>Quality Assurance</h3>
+            </div>
+            <p>Your car undergoes rigorous quality checks and a road test. If any issues are found, it returns for further diagnosis.</p>
+          </div>
+          
+          <div class="delivery-step">
+            <div class="step-header">
+              <div class="step-number">2</div>
+              <h3>Professional Cleaning</h3>
+            </div>
+            <p>We vacuum the interior and thoroughly wash the exterior, leaving your car spotless.</p>
+          </div>
+          
+          <div class="delivery-step">
+            <div class="step-header">
+              <div class="step-number">3</div>
+              <h3>Secure Payment</h3>
+            </div>
+            <p>Receive an invoice via SMS and email with a secure link for online payment.</p>
+          </div>
+          
+          <div class="delivery-step">
+            <div class="step-header">
+              <div class="step-number">4</div>
+              <h3>Final Delivery</h3>
+            </div>
+            <p>Our driver conducts a final inspection with you and provides a delivery report via SMS and email.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <style>
-    /* Service Cards */
-    .service-card {
-        transition: all 0.3s ease;
-        border-radius: 8px;
-        overflow: hidden;
-    }
+/* Base Styles */
+.service-process-tabs {
+  padding: 60px 0;
+  background: #f8fafc;
+}
 
-    .service-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    }
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
 
-    .card-img-container {
-        height: 100px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+.section-title {
+  text-align: center;
+  font-size: 2.2rem;
+  color: #2a5298;
+  margin-bottom: 50px;
+  font-weight: 700;
+}
 
-    .card-img-top {
-        max-height: 80px;
-        width: auto;
-        object-fit: contain;
-        transition: transform 0.3s ease;
-    }
+/* Step Indicator - Updated for single line */
+.step-indicator {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 40px;
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 10px; /* Space for scroll */
+}
 
-    .service-card:hover .card-img-top {
-        transform: scale(1.1);
-    }
+.step-indicator::-webkit-scrollbar {
+  display: none;
+}
 
-    .service-badge {
-        position: absolute;
-        top: 5px;
-        right: 5px;
-        padding: 3px 8px;
-        border-radius: 12px;
-        color: white;
-        font-size: 10px;
-        font-weight: 600;
-        text-transform: uppercase;
-    }
+.step-indicator::before {
+  content: '';
+  position: absolute;
+  top: 25px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: #e0e6ed;
+  z-index: 1;
+}
 
-    .card-body {
-        padding: 0.5rem;
-    }
+.step {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+  flex-shrink: 0;
+  min-width: 80px;
+  padding: 0 10px;
+}
 
-    .card-title {
-        font-size: 14px;
-        font-weight: 600;
-    }
+.step-bubble {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #e0e6ed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: #64748b;
+  transition: all 0.3s ease;
+  margin-bottom: 10px;
+}
 
-    /* Responsive adjustments */
-    @media (min-width: 768px) {
-        .card-img-container {
-            height: 120px;
-        }
-        
-        .card-img-top {
-            max-height: 100px;
-        }
-        
-        .card-title {
-            font-size: 16px;
-        }
-    }
-</style>    
-    <!-- Rent A Car Start
-    <div class="container-fluid py-5">
-        <div class="container pt-5 pb-3">
-            <h1 class="display-1 text-primary text-center">01</h1>
-            <h1 class="display-4 text-uppercase text-center mb-5">Find Your Car</h1>
-            <div class="row">
-                {% for car in cars%}
-                <div class="col-lg-4 col-md-6 mb-2">
-                    <div class="rent-item mb-4">
-                       <a href="{% url 'detail' car.id%}"><img class="img-fluid mb-4" src="{{car.image.url}}" alt=""></a> 
-                        <h4 class="text-uppercase mb-4">{{car.name}}</h4>
-                        <div class="d-flex justify-content-center mb-4">
-                            <div class="px-2">
-                                <i class="fa fa-car text-primary mr-1"></i>
-                                <span>{{car.model}}</span>
-                            </div>
-                            <div class="px-2 border-left border-right">
-                                <i class="fa fa-cogs text-primary mr-1"></i>
-                                <span>{{car.enginetype}}</span>
-                            </div>
-                            <div class="px-2">
-                                <i class="fa fa-road text-primary mr-1"></i>
-                                <span>{{car.fuelConsumption}}</span>
-                            </div>
-                        </div>
-                        <a class="" href="">UGX {{car.price|intcomma}}/Day</a>
-                        <div class=" justify-content-center ">
-                            <a class="btn btn-primary px-3 d-inline-block" href="{% url 'booking' car.id %}">Book Now</a>
-                        </div>
-                        
-                    </div>
-                </div>
-                {% endfor %}
-                
-            </div>
-            <div class="d-flex justify-content-center align-items-center mt-2">
-                <a class="btn btn-primary py-md-3 px-md-5" href="/cars">More Cars</a>
-            </div>
-        </div>
-    </div> -->
+.step.active .step-bubble {
+  background: #2a5298;
+  color: white;
+  transform: scale(1.1);
+  box-shadow: 0 5px 15px rgba(42, 82, 152, 0.3);
+}
+
+.step-label {
+  font-weight: 600;
+  color: #64748b;
+  transition: all 0.3s ease;
+}
+
+.step.active .step-label {
+  color: #2a5298;
+  font-weight: 700;
+}
+
+/* Content Panels */
+.content-panel {
+  display: none;
+  animation: fadeIn 0.5s ease;
+}
+
+.content-panel.active {
+  display: block;
+}
+
+/* Book Panel Styles */
+.booking-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+.option-card {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
+
+.option-card:hover {
+  transform: translateY(-5px);
+}
+
+.option-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.bg-blue { background: #3b82f6; }
+.bg-green { background: #10b981; }
+.bg-purple { background: #8b5cf6; }
+
+.option-card h3 {
+  font-size: 1.3rem;
+  color: #1e293b;
+  margin-bottom: 10px;
+}
+
+.option-card p {
+  color: #64748b;
+  margin-bottom: 20px;
+}
+
+.action-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 20px;
+  background: #f1f5f9;
+  color: #2a5298;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.action-btn i {
+  margin-left: 8px;
+}
+
+.action-btn:hover {
+  background: #2a5298;
+  color: white;
+}
+
+.app-download-form {
+  margin-top: 20px;
+}
+
+.input-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.country-code {
+  padding: 10px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background: white;
+}
+
+.input-group input {
+  flex: 1;
+  min-width: 150px;
+  padding: 10px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+}
+
+.send-btn {
+  flex: 1;
+  padding: 10px;
+  background: #8b5cf6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+
+.send-btn i {
+  margin-left: 8px;
+}
+
+.send-btn:hover {
+  background: #7c3aed;
+}
+
+/* Collect Panel Styles */
+.step-details {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.detail-card {
+  display: flex;
+  margin-bottom: 25px;
+}
+
+.detail-card:last-child {
+  margin-bottom: 0;
+}
+
+.detail-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #f1f5f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: #2a5298;
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+
+.detail-content h3 {
+  font-size: 1.2rem;
+  color: #1e293b;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.detail-content p {
+  color: #64748b;
+  margin: 0;
+}
+
+/* Service Panel Styles */
+.timeline {
+  position: relative;
+  padding-left: 30px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 25px;
+  width: 2px;
+  background: #e2e8f0;
+}
+
+.timeline-step {
+  position: relative;
+  margin-bottom: 30px;
+  padding-left: 40px;
+}
+
+.timeline-step:last-child {
+  margin-bottom: 0;
+}
+
+.step-marker {
+  position: absolute;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #2a5298;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.step-content {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+}
+
+.step-content h4 {
+  font-size: 1.1rem;
+  color: #2a5298;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.step-content p {
+  color: #64748b;
+  margin: 0;
+}
+
+/* Deliver Panel Styles */
+.delivery-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.delivery-step {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.step-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.step-number {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #2a5298;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  margin-right: 15px;
+}
+
+.delivery-step h3 {
+  font-size: 1.1rem;
+  color: #1e293b;
+  margin: 0;
+}
+
+.delivery-step p {
+  color: #64748b;
+  margin: 0;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .section-title {
+    font-size: 1.8rem;
+  }
+  
+  .step-bubble {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+  
+  .step-label {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Keep steps in single line - already handled by main styles */
+  
+  .booking-options {
+    grid-template-columns: 1fr;
+  }
+  
+  .input-group {
+    flex-direction: column;
+  }
+  
+  .country-code,
+  .input-group input,
+  .send-btn {
+    width: 100%;
+  }
+  
+  .detail-card {
+    flex-direction: column;
+  }
+  
+  .detail-icon {
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+  
+  .timeline::before {
+    left: 15px;
+  }
+  
+  .timeline-step {
+    padding-left: 30px;
+  }
+  
+  .step-marker {
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 1.5rem;
+  }
+  
+  .step {
+    min-width: 70px;
+  }
+  
+  .step-bubble {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .step-label {
+    font-size: 0.8rem;
+  }
+  
+  .option-card {
+    padding: 20px;
+  }
+  
+  .option-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+}
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const steps = document.querySelectorAll('.step');
     
-    <!-- Rent A Car End -->
+    steps.forEach(step => {
+      step.addEventListener('click', function() {
+        // Remove active class from all steps
+        steps.forEach(s => s.classList.remove('active'));
+        
+        // Add active class to clicked step
+        this.classList.add('active');
+        
+        // Hide all content panels
+        document.querySelectorAll('.content-panel').forEach(panel => {
+          panel.classList.remove('active');
+        });
+        
+        // Show corresponding panel
+        const stepId = this.getAttribute('data-step');
+        document.getElementById(stepId).classList.add('active');
+      });
+    });
+  });
+</script>
 
- <!-- Cargo Track Start -->
-<div class="container-fluid py-5">
-    <div class="container py-5">
-        <div class="bg-banner py-5 px-4 text-center">
-            <div class="py-5">
-                <h1 class="display-1 text-uppercase text-primary mb-4">Cargo Delivery</h1>
-                <h1 class="text-uppercase text-light mb-4">Fast and Reliable Services</h1>
-                <p class="mb-4">Limited Time Offer: Enjoy exclusive discounts on your first delivery!</p>
-                <a class="btn btn-primary mt-2 py-3 px-5" href="/shipping">Start Shipping Process</a>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Cargo Track End -->
-
-    
-    <!-- About Start -->
-    <div class="container-fluid py-5">
-        <div class="container pt-5 pb-3">
-            <h1 class="display-1 text-primary text-center">02</h1>
-            <h1 class="display-4 text-uppercase text-center mb-5">Welcome To <span class="text-primary">SHURAN</span></h1>
-            <div class="row justify-content-center">
-                <div class="col-lg-10 text-center">
-                    <img class="w-75 mb-4" src="{% static 'img/about.png' %}" alt="">
-                    <p>Shuran is your trusted partner for all your transportation needs. With a focus on convenience and reliability, we offer a range of services including car rentals, fuel delivery, and cargo transportation. Our mission is to provide seamless travel experiences, ensuring that our customers reach their destinations safely and comfortably. Whether you're planning a road trip, need to refuel on the go, or require transportation for your cargo, Shuran has you covered. Experience worry-free travel with Shuran today!</p>                </div>
-            </div>
-            <div class="row mt-3">
-                <div class="col-lg-4 mb-2">
-                    <div class="d-flex align-items-center bg-light p-4 mb-4" style="height: 150px;">
-                        <div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-primary ml-n4 mr-4" style="width: 100px; height: 100px;">
-                            <i class="fa fa-2x fa-headset text-secondary"></i>
-                        </div>
-                        <h4 class="text-uppercase m-0">24/7 Car Rental Support</h4>
-                    </div>
-                </div>
-                <div class="col-lg-4 mb-2">
-                    <div class="d-flex align-items-center bg-secondary p-4 mb-4" style="height: 150px;">
-                        <div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-primary ml-n4 mr-4" style="width: 100px; height: 100px;">
-                            <i class="fa fa-2x fa-car text-secondary"></i>
-                        </div>
-                        <h4 class="text-light text-uppercase m-0">Car Reservation Anytime</h4>
-                    </div>
-                </div>
-                <div class="col-lg-4 mb-2">
-                    <div class="d-flex align-items-center bg-light p-4 mb-4" style="height: 150px;">
-                        <div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-primary ml-n4 mr-4" style="width: 100px; height: 100px;">
-                            <i class="fas fa-gas-pump text-secondary" style="font-size: 30px;"></i>
-                        </div>
-                        <h4 class="text-uppercase m-0">We Deliver Fuel to your Location</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- About End -->
-    <!-- Services Start -->
-    <div class="container-fluid py-5">
-        <div class="container pt-5 pb-3">
-            <h1 class="display-1 text-primary text-center">03</h1>
-            <h1 class="display-4 text-uppercase text-center mb-5">Our Services</h1>
-            <div class="row">
-                {% for service in services %}
-                <div class="col-lg-4 col-md-6 mb-2">
-                    <div class="service-item d-flex flex-column justify-content-center px-4 mb-4">
-                        <div class="d-flex align-items-center justify-content-between mb-3">
-                            <div class="d-flex align-items-center justify-content-center bg-primary ml-n4" style="width: 80px; height: 80px;">
-                                <i class="{{service.icon}} text-secondary"></i>
-                            </div>
-                            <h1 class="display-2 text-white mt-n2 m-0">{{service.number}}</h1>
-                        </div>
-                        <h4 class="text-uppercase mb-3">{{service.title}}</h4>
-                        <p class="m-0">{{service.details|truncatechars:290}}</p>
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
-        </div>
-    </div>
-    <!-- Services End -->
-
-    <!-- Team Start -->
-    <div class="container-fluid py-5">
-        <div class="container py-5">
-            <h1 class="display-1 text-primary text-center">04</h1>
-            <h1 class="display-4 text-uppercase text-center mb-5">Meet Our Team</h1>
-            <div class="owl-carousel team-carousel position-relative" style="padding: 0 30px;">
-                {% for member in staff %}
-                <div class="team-item">
-                    <img class="img-fluid w-100" src="{{member.image.url}}" alt="">
-                    <div class="position-relative py-4">
-                        <h4 class="text-uppercase">{{member.name}}</h4>
-                        <p class="m-0">{{member.title}}</p>
-                        <div class="team-social position-absolute w-100 h-100 d-flex align-items-center justify-content-center">
-                            <a class="btn btn-lg btn-primary btn-lg-square mx-1" href="javascript:void(0)"><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-lg btn-primary btn-lg-square mx-1" href="javascript:void(0)"><i class="fab fa-facebook-f"></i></a>
-                        </div>
-                    </div>
-                </div>
-                {% endfor %}
-               
-            </div>
-        </div>
-    </div>
-
+  
 {% include 'include.html' %}    <!-- Team End -->
 
 {% endblock %}
